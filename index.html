@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+</head>
+
+<body>
+
+  <label for="agreementCheckBox">Program 1: Tick the checkbox below to agree to the terms:</label>
+  <br>
+  <input type="checkbox" id="agreementCheckBox" /> I agree to the terms and conditions.
+  <p id="agreementResult"></p>
+
+  <label>Program 2: Select multiple food allergies:</label>
+  <input type="checkbox" name="food" value="dairy" /> Dairy
+  <input type="checkbox" name="food" value="nuts" /> Nuts
+  <input type="checkbox" name="food" value="gluten" /> Gluten
+  <button id="foodBtn">Display Selected Food Allergies</button>
+  <p id="foodResult"></p>
+
+  <label>Program 3: Choose multiple travel destinations: </label>
+  <input type="checkbox" name="destination" value="paris" /> Paris
+  <input type="checkbox" name="destination" value="newYork" /> New York
+  <input type="checkbox" name="destination" value="tokyo" /> Tokyo
+  <button id="destinationBtn">Display Selected Travel Destinations</button>
+  <p id="destinationResult"></p>
+
+  <label>Program 4: Selected multiple sports:</label>
+  <input type="checkbox" name="sports" value="soccer" /> Soccer
+  <input type="checkbox" name="sports" value="basketball" /> BasketBall
+  <input type="checkbox" name="sports" value="tennis" /> Tennis
+  <button id="sportsBtn">Display Selected Sports</button>
+  <p id="sportsResult"></p>
+
+  <label>Program 5: Choose multiple clothing colors:</label>
+  <input type="checkbox" name="colors" value="black" /> Black
+  <input type="checkbox" name="colors" value="white" /> White
+  <input type="checkbox" name="colors" value="blue" /> Blue
+  <button id="colorBtn">Display Selected Clothing Colors</button>
+  <p id="colorResult"></p>
+
+  <label>Program 6: Choose multiple social media platforms:</label>
+  <input type="checkbox" name="platforms" value="facebook" /> Facebook
+  <input type="checkbox" name="platforms" value="twitter" /> Twitter
+  <input type="checkbox" name="platforms" value="instagram" /> Instagram
+  <button id="platformBtn">Display Selected Social Media Platforms</button>
+  <p id="platformResult"></p>
+
+  <script>
+    const agreementCheckBox = document.getElementById("agreementCheckBox")
+
+    agreementCheckBox.addEventListener("change", function () {
+      if (agreementCheckBox.checked) {
+        agreementResult.textContent = "User Agreed to Terms"
+      } else {
+        agreementResult.textContent = ''
+      }
+    })
+
+    const foodCheckBoxes = document.getElementsByName("food")
+    const foodBtn = document.getElementById("foodBtn")
+    const foodResult = document.getElementById("foodResult")
+
+    foodBtn.addEventListener("click", function () {
+      const selectedFoods = [];
+      let atLeastOneChecked = false
+
+      for (let i = 0; i < foodCheckBoxes.length; i++) {
+        if (foodCheckBoxes[i].checked) {
+          selectedFoods.push(foodCheckBoxes[i].value)
+          atLeastOneChecked = true
+        }
+      }
+
+      if (atLeastOneChecked) {
+        foodResult.textContent = `Selected Food Allergies: ${selectedFoods.join(", ")}`
+      } else {
+        foodResult.textContent = `Please select at least one food allergy`
+      }
+    })
+
+    destinationCheckBoxes = document.getElementsByName("destination")
+    destinationBtn = document.getElementById("destinationBtn")
+    destinationResult = document.getElementById("destinationResult")
+
+    destinationBtn.addEventListener("click", function () {
+      const selectedDestinations = []
+      let atLeastOneCheckedDestination = false
+
+      for (let i = 0; i < destinationCheckBoxes.length; i++) {
+        if (destinationCheckBoxes[i].checked) {
+          selectedDestinations.push(destinationCheckBoxes[i].value)
+          atLeastOneCheckedDestination = true
+        }
+      }
+
+      if (atLeastOneCheckedDestination) {
+        destinationResult.textContent = `Selected Travel Destinations: ${selectedDestinations.join(", ")}`
+      } else {
+        destinationResult.textContent = `Please select at least one travel Destination`
+      }
+    })
+
+    const sportCheckBoxes = document.getElementsByName("sports")
+    const sportsBtn = document.getElementById("sportsBtn")
+    const sportsResult = document.getElementById("sportsResult")
+
+    sportsBtn.addEventListener("click", function () {
+      selectedSports = [];
+      let atLeastOneCheckedSports = false
+
+      for (let i = 0; i < sportCheckBoxes.length; i++) {
+        if (sportCheckBoxes[i].checked) {
+          selectedSports.push(sportCheckBoxes[i].value)
+          atLeastOneCheckedSports = true
+        }
+      }
+
+      if (atLeastOneCheckedSports) {
+        sportsResult.textContent = `Selected Sports: ${selectedSports.join(", ")}`
+      } else {
+        sportsResult.textContent = `Please select at least one sport`
+      }
+    })
+
+    const colorCheckBoxes = document.getElementsByName("colors")
+    const colorBtn = document.getElementById("colorBtn")
+    const colorResult = document.getElementById("colorResult")
+
+    colorBtn.addEventListener("click", function () {
+      selectedColors = []
+      let atLeastOneCheckedColor = false
+
+      for (let i = 0; i < colorCheckBoxes.length; i++) {
+        if (colorCheckBoxes[i].checked) {
+          selectedColors.push(sportCheckBoxes[i].value)
+          atLeastOneCheckedColor = true
+        }
+      }
+
+      if (atLeastOneCheckedColor) {
+        colorResult.textContent = `Selected Colors: ${selectedColors.join(", ")}`
+      } else {
+        colorResult.textContent = `Please select at least one color`
+      }
+    })
+
+    const platformCheckBoxes = document.getElementsByName("platforms")
+    const platformBtn = document.getElementById("platformBtn")
+    const platformResult = document.getElementById("platformResult")
+
+    platformBtn.addEventListener("click", function () {
+      selectedPlatforms = []
+      let atLeastCheckOnePlatform = false
+
+      for (let i = 0; i < platformCheckBoxes.length; i++) {
+        if (platformCheckBoxes[i].checked) {
+          selectedPlatforms.push(platformCheckBoxes[i].value)
+          atLeastCheckOnePlatform = true
+        }
+      }
+
+      if (atLeastCheckOnePlatform) {
+        platformResult.textContent = `Selected Platforms: ${selectedPlatforms.join(", ")}`
+      } else {
+        platformResult.textContent = `Please select at least one social media platform`
+      }
+    })
+  </script>
+</body>
+
+</html>
